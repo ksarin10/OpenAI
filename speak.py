@@ -7,7 +7,7 @@ import uuid
 import playsound
 from gtts import gTTS
 
-api_key = "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"
+api_key = "hidden"
 
 openai.api_key = api_key
 
