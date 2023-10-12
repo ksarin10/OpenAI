@@ -102,7 +102,7 @@ if __name__ == "__main__":
 '''
 
 # Define your OpenAI API key
-api_key = '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'
+api_key = 'hidden'
 
 # Function to summarize a complex paper and generate an image
 
