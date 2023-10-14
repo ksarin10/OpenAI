@@ -1,9 +1,9 @@
 
 
 import openai
-'''
+
 # Define your OpenAI API key
-api_key = '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'
+api_key = 'hidden'
 
 # Function to summarize a complex paper
 
@@ -35,11 +35,11 @@ if __name__ == "__main__":
 
     summarized_paper = summarize_paper(complex_paper)
     print(summarized_paper)
-'''
 
-'''
+
+
 # Define your OpenAI API key
-api_key = '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'
+api_key = 'hidden'
 
 # Function to clarify complex concepts in a document with analogies
 
@@ -99,8 +99,12 @@ if __name__ == "__main__":
 
     for concept, clarification in zip(concepts_to_clarify, clarified_concepts):
         print(f"{concept} clarification:\n{clarification}")
-'''
 
+
+
+
+
+'''
 # Define your OpenAI API key
 api_key = 'hidden'
 
@@ -150,3 +154,4 @@ if __name__ == "__main__":
     print(simplified_definition)
     print("\nGenerated Image URL:")
     print(generated_image_url)
+'''
