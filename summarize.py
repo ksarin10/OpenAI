@@ -7,13 +7,12 @@ api_key = 'hidden'
 
 # Function to summarize a complex paper
 
-
-def summarize_paper(paper_text):
+def summarize_paper(paper_text, grade):
     # Initialize the OpenAI API client
     openai.api_key = api_key
 
     # Specify the input prompt and instruct GPT-3 to summarize the paper
-    prompt = f"Summarize the following complex paper for a high school student:\n{paper_text}\n\nSummary:"
+    prompt = f"Summarize the following complex paper for a {grade} gradestudent:\n{paper_text}\n\nSummary:"
 
     # Set parameters for the API call
     response = openai.Completion.create(
@@ -33,8 +32,9 @@ def summarize_paper(paper_text):
 if __name__ == "__main__":
     complex_paper = "Much research in theoretical cryptography has been centered around finding the weakest possible cryptographic assumptions required to implement major primitives. Ever since Diffie and Hellman first suggested that modern cryptography be based on one-way functions (which are easy to compute, but hard to invert) and trapdoor functions (one-way functions which are, however, easy to invert given an associated secret), researchers have been busy trying to construct schemes that only require one of these general assumptions. For example, pseudorandom generators at first could only be constructed from a specific hard problem, such as discrete log IBM2]. Later it was shown how to construct pseudo-random generators given any one-way permutation [Y], and from other weak forms of one-way functions [Le, GKL]. Finally JILL] proved that the existence of any one-way function was a necessary and sufficient condition for the existence of pseudo-random generators. Similarly, the existence of trapdoor permutations can be shown to be necessary and sufficient for secure encryption schemes."
 
-    summarized_paper = summarize_paper(complex_paper)
+    summarized_paper = summarize_paper(complex_paper, "fourth")
     print(summarized_paper)
+
 
 
 
