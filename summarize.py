@@ -2,7 +2,7 @@
 
 import openai
 
-# Define your OpenAI API key
+
 api_key = 'hidden'
 
 # Function to summarize a complex paper
@@ -11,24 +11,24 @@ def summarize_paper(paper_text, grade):
     # Initialize the OpenAI API client
     openai.api_key = api_key
 
-    # Specify the input prompt and instruct GPT-3 to summarize the paper
+    # Specify the input prompt
     prompt = f"Summarize the following complex paper for a {grade} gradestudent:\n{paper_text}\n\nSummary:"
 
-    # Set parameters for the API call
+    
     response = openai.Completion.create(
-        engine="text-davinci-002",  # Choose the appropriate engine
+        engine="text-davinci-002",  
         prompt=prompt,
-        max_tokens=1000,  # Adjust this based on the desired length of the summary
-        temperature=0.7,  # Adjust the temperature for creativity
+        max_tokens=1000,  
+        temperature=0.7,  
     )
 
-    # Extract the summary from the API response
+    # Extract the summary 
     summary = response.choices[0].text.strip()
 
     return summary
 
 
-# Example usage
+
 if __name__ == "__main__":
     complex_paper = "Much research in theoretical cryptography has been centered around finding the weakest possible cryptographic assumptions required to implement major primitives. Ever since Diffie and Hellman first suggested that modern cryptography be based on one-way functions (which are easy to compute, but hard to invert) and trapdoor functions (one-way functions which are, however, easy to invert given an associated secret), researchers have been busy trying to construct schemes that only require one of these general assumptions. For example, pseudorandom generators at first could only be constructed from a specific hard problem, such as discrete log IBM2]. Later it was shown how to construct pseudo-random generators given any one-way permutation [Y], and from other weak forms of one-way functions [Le, GKL]. Finally JILL] proved that the existence of any one-way function was a necessary and sufficient condition for the existence of pseudo-random generators. Similarly, the existence of trapdoor permutations can be shown to be necessary and sufficient for secure encryption schemes."
 
@@ -43,22 +43,21 @@ api_key = 'hidden'
 
 # Function to clarify complex concepts in a document with analogies
 
-
 def clarify_concepts(document_text, concept_list):
-    # Initialize the OpenAI API client
+ 
     openai.api_key = api_key
 
-    # Construct the prompt to clarify concepts
+    
     clarifications = []
 
     for concept in concept_list:
-        # Prompt to explain the concept
+        
         explanation_prompt = f"Explain the concept of '{concept}' as mentioned in the following document:\n{document_text}\n\n"
 
-        # Prompt to generate a simple analogy
+      
         analogy_prompt = f"Provide a simple analogy to help understand '{concept}' better, like comparing it to a familiar concept."
 
-        # Set parameters for the API call to explain the concept
+      
         explanation_response = openai.Completion.create(
             engine="text-davinci-002",
             prompt=explanation_prompt,
@@ -67,20 +66,20 @@ def clarify_concepts(document_text, concept_list):
             stop=None
         )
 
-        # Set parameters for the API call to generate an analogy
+        # Set parameters for the API 
         analogy_response = openai.Completion.create(
             engine="text-davinci-002",
             prompt=analogy_prompt,
-            max_tokens=100,  # Limit the length of the analogy
+            max_tokens=100,  
             temperature=0.7,
             stop=None
         )
 
-        # Extract the clarified explanation and analogy from the API responses
+        
         clarification = explanation_response.choices[0].text.strip()
         analogy = analogy_response.choices[0].text.strip()
 
-        # Add contextual examples and the generated analogy
+        
         clarification_with_analogy = f"{clarification}\n\nAnalogy: {analogy}"
         clarifications.append(clarification_with_analogy)
 
