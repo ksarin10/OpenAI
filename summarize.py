@@ -12,7 +12,7 @@ def summarize_paper(paper_text, grade):
     openai.api_key = api_key
 
     # Specify the input prompt
-    prompt = f"Summarize the following complex paper for a {grade} gradestudent:\n{paper_text}\n\nSummary:"
+    prompt = f"Summarize the following complex paper for a {grade} grade student:\n{paper_text}\n\nSummary:"
 
     
     response = openai.Completion.create(
