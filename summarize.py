@@ -8,10 +8,8 @@ api_key = 'hidden'
 # Function to summarize a complex paper
 
 def summarize_paper(paper_text, grade):
-    # Initialize the OpenAI API client
     openai.api_key = api_key
 
-    # Specify the input prompt
     prompt = f"Summarize the following complex paper for a {grade} grade student:\n{paper_text}\n\nSummary:"
 
     
@@ -22,7 +20,6 @@ def summarize_paper(paper_text, grade):
         temperature=0.7,  
     )
 
-    # Extract the summary 
     summary = response.choices[0].text.strip()
 
     return summary
@@ -36,12 +33,6 @@ if __name__ == "__main__":
     print(summarized_paper)
 
 
-
-
-# Define your OpenAI API key
-api_key = 'hidden'
-
-# Function to clarify complex concepts in a document with analogies
 
 def clarify_concepts(document_text, concept_list):
  
@@ -66,7 +57,6 @@ def clarify_concepts(document_text, concept_list):
             stop=None
         )
 
-        # Set parameters for the API 
         analogy_response = openai.Completion.create(
             engine="text-davinci-002",
             prompt=analogy_prompt,
@@ -86,7 +76,6 @@ def clarify_concepts(document_text, concept_list):
     return clarifications
 
 
-# Example usage
 if __name__ == "__main__":
     complex_document = "In the field of quantum mechanics, entanglement is a phenomenon where two or more particles become connected in such a way that the state of one particle instantly influences the state of the others, regardless of the distance between them. This concept is fundamental to understanding quantum computing and teleportation."
 
